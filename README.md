@@ -8,13 +8,31 @@ The data file this program reads through is too large to include in Github
 
 ## How to Run
 
-1. Clone this repository: git clone https://github.com/KDastur/[Healthcare-Provider-Lookup].git
-2. Navigate into the project folder: cd [Healthcare-Provider-Lookup]
-3. Install dependencies: pip install -r requirements.txt
-4. Download the NPPES NPI data files from CMS (these are not included in this repo due to file size):
+## How to Run
+
+1. Clone this repository:
+git clone https://github.com/KDastur/[your-repo-name].git
+2. Navigate into the project folder:
+cd [your-repo-name]
+3. Install dependencies:
+pip install -r requirements.txt
+4. Download the NPPES NPI data files from CMS (not included in this repo due to file size):
    https://download.cms.gov/nppes/NPI_Files.html
-5. Place the downloaded CSV files into a `Data/` folder in the project root
-6. Build the database: python build_db.py
-This generates `npi.db` in the project root. This file is large (~3GB) and may take a few minutes to build.
-7. Run the app: streamlit run Lookup-program.py
-8. Streamlit will automatically open the app in your browser (usually at `http://localhost:8501`)
+
+   You need the **full replacement monthly NPI file**, which includes:
+   - `npidata_pfile_[date].csv`
+   - `pl_pfile_[date].csv`
+   - `othername_pfile_[date].csv`
+
+5. Place these three CSV files into a `Data/` folder in the project root
+
+6. Open `build_db.py` and update the filenames at the top (`NPI_FILE`, `PL_FILE`, `OTHER_FILE`) to match the exact filenames you downloaded, since CMS includes the release date in each filename and it changes monthly
+
+7. Build the database:
+python build_db.py
+   This generates `npi.db` in the project root (~3-5GB). Takes 10-30 minutes depending on hardware.
+
+8. Run the app:
+streamlit run Lookup-program.py
+
+9. Streamlit will open the app in your browser automatically (usually at `http://localhost:8501`)
