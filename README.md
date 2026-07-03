@@ -6,9 +6,7 @@ This program creates a web page that allows users to search and filter through h
 ### Disclaimer
 The data file this program reads through is too large to include in Github
 
-## How to Run
-
-## How to Run
+### How to Run
 
 1. Clone this repository:
 git clone https://github.com/KDastur/[your-repo-name].git
